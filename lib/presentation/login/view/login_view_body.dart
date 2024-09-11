@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:task_app/presentation/login/view/widget/custom_Button.dart';
-import 'package:task_app/presentation/login/view/widget/custom_button_login.dart';
-import 'package:task_app/presentation/login/view/widget/custom_text_fild.dart';
+import 'package:task_app/presentation/login/view/widget/custom_Button_google.dart';
+import 'package:task_app/core/Widget/custom_button.dart';
+import 'package:task_app/core/Widget/custom_text_fild.dart';
+import 'package:task_app/presentation/register/register_view.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -11,11 +12,11 @@ class LoginViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: ListView(
-        children: const [
-          SizedBox(
+        children: [
+          const SizedBox(
             height: 50,
           ),
-          Align(
+          const Align(
             alignment: Alignment.center,
             child: Text(
               'Log in to Shh!',
@@ -25,34 +26,44 @@ class LoginViewBody extends StatelessWidget {
                   color: Colors.white),
             ),
           ),
-          SizedBox(height: 120),
-          CustomTextField(hintText: 'Username or Email'),
-          SizedBox(height: 40),
-          CustomTextField(hintText: 'Password'),
-          SizedBox(
+          const SizedBox(height: 120),
+          const CustomTextField(hintText: 'Username or Email'),
+          const SizedBox(height: 40),
+          const CustomTextField(hintText: 'Password'),
+          const SizedBox(
             height: 70,
           ),
-          CustomButtonLogin(),
-          SizedBox(
+          const CustomButton(
+            textButton: "Log in",
+          ),
+          const SizedBox(
             height: 30,
           ),
-          CustomButtonGoogle(),
-          SizedBox(
+          const CustomButtonGoogle(),
+          const SizedBox(
             height: 40,
           ),
-          Text(
+          const Text(
             'Dont have an accaount ?',
             style: TextStyle(
                 color: Colors.white, fontSize: 15, fontWeight: FontWeight.w700),
           ),
           Align(
             alignment: Alignment.center,
-            child: Text(
-              'Sign up',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w800),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RegisterView()));
+              },
+              child: const Text(
+                'Register',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w800),
+              ),
             ),
           ),
         ],

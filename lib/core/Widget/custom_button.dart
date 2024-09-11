@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:task_app/presentation/home/view/home_view.dart';
 
-class CustomButtonLogin extends StatelessWidget {
-  const CustomButtonLogin({
+class CustomButton extends StatelessWidget {
+  const CustomButton({
     super.key,
+    required this.textButton,
   });
-
+  final String textButton;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,9 +19,9 @@ class CustomButtonLogin extends StatelessWidget {
         },
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.black, minimumSize: const Size(305, 56)),
-        child: const Text(
-          'Login',
-          style: TextStyle(color: Colors.white, fontSize: 15),
+        child: Text(
+          textButton,
+          style: const TextStyle(color: Colors.white, fontSize: 15),
         ),
       ),
     );
