@@ -4,7 +4,7 @@ import 'package:task_app/presentation/home/view/home_view.dart';
 import 'package:task_app/presentation/login/view/widget/custom_Button_google.dart';
 import 'package:task_app/core/Widget/custom_button.dart';
 import 'package:task_app/core/Widget/custom_text_fild.dart';
-import 'package:task_app/presentation/register/register_view.dart';
+import 'package:task_app/presentation/register/view/register_view.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
