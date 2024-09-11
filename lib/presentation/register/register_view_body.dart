@@ -1,7 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:task_app/core/utils/register_with_email_password.dart';
-import 'package:task_app/presentation/login/view/widget/custom_Button_google.dart';
 import 'package:task_app/core/Widget/custom_button.dart';
 import 'package:task_app/core/Widget/custom_text_fild.dart';
 
@@ -13,9 +11,9 @@ class RegisterViewBody extends StatefulWidget {
 }
 
 class _RegisterViewBodyState extends State<RegisterViewBody> {
-  String email = '';
+  late String email;
 
-  String password = '';
+  late String password;
 
   @override
   Widget build(BuildContext context) {

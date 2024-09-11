@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:task_app/core/utils/sign_in_with_email_password.dart';
+import 'package:task_app/presentation/home/view/home_view.dart';
 import 'package:task_app/presentation/login/view/widget/custom_Button_google.dart';
 import 'package:task_app/core/Widget/custom_button.dart';
 import 'package:task_app/core/Widget/custom_text_fild.dart';
 import 'package:task_app/presentation/register/register_view.dart';
 
-class LoginViewBody extends StatelessWidget {
+class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
 
+  @override
+  State<LoginViewBody> createState() => _LoginViewBodyState();
+}
+
+class _LoginViewBodyState extends State<LoginViewBody> {
+  late String email;
+  late String password;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,14 +36,39 @@ class LoginViewBody extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 120),
-          const CustomTextField(hintText: 'Username or Email'),
+          CustomTextField(
+            hintText: ' Email',
+            onChanged: (getEmail) {
+              email = getEmail;
+            },
+          ),
           const SizedBox(height: 40),
-          const CustomTextField(hintText: 'Password'),
+          CustomTextField(
+            hintText: 'Password',
+            onChanged: (getPassword) {
+              password = getPassword;
+            },
+          ),
           const SizedBox(
             height: 70,
           ),
-          const CustomButton(
+          CustomButton(
             textButton: "Log in",
+            onPressed: () {
+              if (email.isNotEmpty || password.isNotEmpty) {
+                signInWithEmailAndPassword(email, password);
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const HomeView();
+                }));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Welcome How are you')),
+                );
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('emil or password is empty')),
+                );
+              }
+            },
           ),
           const SizedBox(
             height: 30,
