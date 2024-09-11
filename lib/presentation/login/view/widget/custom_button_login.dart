@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_app/presentation/home/view/home_view.dart';
 
 class CustomButtonLogin extends StatelessWidget {
   const CustomButtonLogin({
@@ -10,7 +11,11 @@ class CustomButtonLogin extends StatelessWidget {
     return SizedBox(
       width: 306,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return const HomeView();
+          }));
+        },
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.black, minimumSize: const Size(305, 56)),
         child: const Text(

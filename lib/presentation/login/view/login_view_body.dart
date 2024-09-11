@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:task_app/view/widget/custom_Button.dart';
-import 'package:task_app/view/widget/custom_button_login.dart';
-import 'package:task_app/view/widget/custom_text_fild.dart';
+import 'package:task_app/presentation/login/view/widget/custom_Button.dart';
+import 'package:task_app/presentation/login/view/widget/custom_button_login.dart';
+import 'package:task_app/presentation/login/view/widget/custom_text_fild.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
