@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, required this.hintText});
+  const CustomTextField({super.key, required this.hintText, this.onChanged});
   final String hintText;
+  final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,6 +22,7 @@ class CustomTextField extends StatelessWidget {
         ],
       ),
       child: TextFormField(
+        onChanged: onChanged,
         decoration: InputDecoration(
           hintText: hintText,
           contentPadding: const EdgeInsets.symmetric(horizontal: 20),
